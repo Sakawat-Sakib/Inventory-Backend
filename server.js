@@ -9,7 +9,10 @@ const Product = require('./models/Product');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allows all origins (not recommended for production)
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+}));
 app.use(express.json());
 
 require('dotenv').config();
